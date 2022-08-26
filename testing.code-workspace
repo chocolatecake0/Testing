@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\Users\\Eren\\Desktop\\ai car stuff"
+		},
+		{
+			"path": "..\\Users\\Eren\\Desktop\\tetrisapp"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "tetrisapp"
+	}
+}
