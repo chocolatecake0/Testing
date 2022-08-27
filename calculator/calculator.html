@@ -45,9 +45,17 @@
             if(currentNumber<10)
             storedNumber = result
             else if(currentNumber===11){
-            storedNumber = 0    
+            currentNumber = 0    
             }
+            if(currentNumber===14){
             $("#output").html(storedNumber)
+            }
+            else if(currentNumber<10){
+            $("#output").html(currentNumber)
+            }
+            else if(currentNumber<10 && currentNumber!==14){
+
+            }
         })
 
 
