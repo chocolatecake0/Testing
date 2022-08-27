@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        let storedNumber = 0;
+        let operator = ""
+        let extra = ["-", "0", "+", "/", "=", "x", "*"]
+      $(document).ready(function(){
+
+        function calculation(currentNumber, storedNumber, operator){
+            if(operator === "="){
+            return storedNumber
+            }
+            else if(operator === "-"){
+            return storedNumber - currentNumber    
+            }
+            else if(operator === "+"){
+            return storedNumber + currentNumber    
+            }
+            else if(operator === "/"){
+            return storedNumber / currentNumber    
+            }
+            else if(operator === "x"){
+            return storedNumber * currentNumber    
+            }
+            else {
+            return currentNumber
+            }    
+            }
+
+        function selectOperator(currentNumber){
+            if(currentNumber>=10){
+            return extra[currentNumber-10]
+            }
+        }
+        for(let currentNumber = 0; currentNumber<=15; currentNumber++)
+        $("#button"+currentNumber.toString()).click(function(){
+            result = calculation(currentNumber, storedNumber, operator)
+            operator = selectOperator(currentNumber)
+            if(currentNumber<10)
+            storedNumber = result
+            else if(currentNumber===11){
+            storedNumber = 0    
+            }
+            $("#output").html(storedNumber)
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+    </script>
+</head>
+<body>
+    
+
+<p>Calculator</p>
+<div id= "calculator">
+<div id= "screen"><p id="output"></p></div>
+<div id="buttons">
+<button id="button1" class="button"><p class="puts-number-in-center">1</p></button>
+<button id="button2" class="button"><p class="puts-number-in-center">2</p></button>
+<button id="button3" class="button"><p class="puts-number-in-center">3</p></button>
+<button id="button4" class="button"><p class="puts-number-in-center">4</p></button>
+<button id="button5" class="button"><p class="puts-number-in-center">5</p></button>
+<button id="button6" class="button"><p class="puts-number-in-center">6</p></button>
+<button id="button7" class="button"><p class="puts-number-in-center">7</p></button>
+<button id="button8" class="button"><p class="puts-number-in-center">8</p></button>
+<button id="button9" class="button"><p class="puts-number-in-center">9</p></button>
+<button id="button10" class="button"><p class="puts-number-in-center">-</p></button>
+<button id="button11" class="button"><p class="puts-number-in-center">0</p></button>
+<button id="button12" class="button"><p class="puts-number-in-center">+</p></button>
+<button id="button13" class="button"><p class="puts-number-in-center">/</p></button>
+<button id="button14" class="button"><p class="puts-number-in-center">=</p></button>
+<button id="button15" class="button"><p class="puts-number-in-center">x</p></button>
+<button id="button16" class="button"><p class="puts-number-in-center">*</p></button>
+</div>
+</div>
+</body>
+</html>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#input {
+    color: rgb(14, 2, 26);
+}
+#output {
+    font-size: 50px;
+    display: block;
+    justify-content: center;
+    padding: 5%;
+}
+#calculator {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px; 
+    border-radius: 5%;
+    width: 320px;
+    box-shadow: 0px 0px 10px 5px black;
+    margin: 5% 0% 0 40%;
+}
+#screen  {
+    height: 75px;
+    width: 320px;
+}
+#buttons {
+    background-color: rgba(132, 0, 255, 0.356);
+    width: auto;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.button {
+    background-color: rgb(246, 246, 248);
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border-radius: 15%;
+}
+#operator {
+    background-color: rgb(246, 246, 248);
+    width: 66px;
+    height: 70px;
+    margin: 5px;
+    border-radius: 15%;
+}
+.puts-number-in-center {
+    font-size: 50px;
+    display: block;
+    justify-content: center;
+    padding: 10%;
+}
+</style>
