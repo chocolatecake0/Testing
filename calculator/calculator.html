@@ -7,62 +7,77 @@
     <title>Document</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-        let storedNumber = 0;
+        let storedNumber;
         let operator = ""
-        let extra = ["-", "0", "+", "/", "=", "x", "*"]
+        let ans = 0
+        let number1 = 0;
+        let number2 = 0;
+        let operators = {
+        10:function minus (number1, number2){
+            return number1-number2
+        },
+        12:function add (number1, number2){
+            return number1+number2
+        },
+        15:function multiply (number1, number2){
+            return number1*number2
+        },
+        13:function divide (number1, number2){
+            return number1/number2
+        },
+        14:function equality (number1, number2){
+        }
+    }
+        let selector = "number1" 
+        let number = false
+        let result 
       $(document).ready(function(){
 
-        function calculation(currentNumber, storedNumber, operator){
-            if(operator === "="){
-            return storedNumber
-            }
-            else if(operator === "-"){
-            return storedNumber - currentNumber    
-            }
-            else if(operator === "+"){
-            return storedNumber + currentNumber    
-            }
-            else if(operator === "/"){
-            return storedNumber / currentNumber    
-            }
-            else if(operator === "x"){
-            return storedNumber * currentNumber    
-            }
-            else {
-            return currentNumber
-            }    
-            }
 
-        function selectOperator(currentNumber){
-            if(currentNumber>=10){
-            return extra[currentNumber-10]
-            }
-        }
-        for(let currentNumber = 0; currentNumber<=15; currentNumber++)
+        for(let currentNumber = 0; currentNumber<=15; currentNumber++){
         $("#button"+currentNumber.toString()).click(function(){
-            result = calculation(currentNumber, storedNumber, operator)
-            operator = selectOperator(currentNumber)
-            if(currentNumber<10)
-            storedNumber = result
-            else if(currentNumber===11){
-            currentNumber = 0    
-            }
+            console.log(currentNumber>=10 && number === true)
+        if(currentNumber>=10 && number === true){
+        number1 = result
+        selector = "number2"
+        }
+        number=false
+        if(currentNumber<10 && number === false){
+            if(selector==="number1"){
+        number1 = number1 + currentNumber.toString()
+        number1 = parseInt(number1)
+        $("#output").html(number1)
+         }    
+            else if(selector==="number2"){
+        number2 = number2 + currentNumber.toString()
+        number2 = parseInt(number2)
+        $("#output").html(number2)
+         }
+        }
+            if(currentNumber>=10){
+            selector = "number2"
+            number = false
             if(currentNumber===14){
-            $("#output").html(storedNumber)
+            result = operators[storedNumber](number1,number2)
+            console.log(result)
+            $("#output").html(result)
+            selector = "number1"
+            number1 = 0;
+            number2 = 0;
+            number = true
             }
-            else if(currentNumber<10){
-            $("#output").html(currentNumber)
-            }
-            else if(currentNumber<10 && currentNumber!==14){
+            if(currentNumber!==14){
+            storedNumber = currentNumber
+        }
+        }
+        
+        
 
-            }
+         
         })
-
-
-
-
-
-
+        }
+        
+console.log(operators[10])
 
 
 
@@ -94,7 +109,7 @@
 <button id="button8" class="button"><p class="puts-number-in-center">8</p></button>
 <button id="button9" class="button"><p class="puts-number-in-center">9</p></button>
 <button id="button10" class="button"><p class="puts-number-in-center">-</p></button>
-<button id="button11" class="button"><p class="puts-number-in-center">0</p></button>
+<button id="button0" class="button"><p class="puts-number-in-center">0</p></button>
 <button id="button12" class="button"><p class="puts-number-in-center">+</p></button>
 <button id="button13" class="button"><p class="puts-number-in-center">/</p></button>
 <button id="button14" class="button"><p class="puts-number-in-center">=</p></button>
