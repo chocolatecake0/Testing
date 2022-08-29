@@ -29,13 +29,23 @@
         }
     }
         let selector = "number1" 
+        let number = false
         let result 
       $(document).ready(function(){
 
 
         for(let currentNumber = 0; currentNumber<=15; currentNumber++){
         $("#button"+currentNumber.toString()).click(function(){
-        if(currentNumber<10){
+            console.log(currentNumber>=10 && number === true)
+        if(currentNumber>=10 && number === true){
+        number1 = result
+        selector = "number2"
+        }
+        number=false
+
+ 
+        
+        if(currentNumber<10 && number === false){
             if(selector==="number1"){
         number1 = number1 + currentNumber.toString()
         number1 = parseInt(number1)
@@ -47,16 +57,17 @@
         $("#output").html(number2)
          }
         }
-        else if(currentNumber>=10){
+            if(currentNumber>=10){
             selector = "number2"
-
+            number = false
             if(currentNumber===14){
-                    result = operators[storedNumber](number1,number2)
-
+            result = operators[storedNumber](number1,number2)
             console.log(result)
+            $("#output").html(result)
             selector = "number1"
             number1 = 0;
             number2 = 0;
+            number = true
             }
             storedNumber = currentNumber
         }
