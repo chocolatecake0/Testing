@@ -25,7 +25,8 @@
         13:function divide (number1, number2){
             return number1/number2
         },
-        14:function equality (number1, number2){
+        14:function divide (number1, number2){
+            return number1
         }
     }
         let selector = "number1" 
@@ -42,9 +43,6 @@
         selector = "number2"
         }
         number=false
-
- 
-        
         if(currentNumber<10 && number === false){
             if(selector==="number1"){
         number1 = number1 + currentNumber.toString()
@@ -58,9 +56,9 @@
          }
         }
             if(currentNumber>=10){
-            selector = "number2"
+            storedNumber = currentNumber
             number = false
-            if(currentNumber===14){
+            if(selector === "number2"){
             result = operators[storedNumber](number1,number2)
             console.log(result)
             $("#output").html(result)
@@ -69,7 +67,9 @@
             number2 = 0;
             number = true
             }
-            storedNumber = currentNumber
+            else if(selector === "number1"){
+            selector = "number2"
+            }
         }
         
         
