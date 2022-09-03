@@ -10,76 +10,90 @@
         let storedNumber;
         let operator = ""
         let ans = 0
-        let number1 = 0;
-        let number2 = 0;
-        let operators = {
-        10:function minus (number1, number2){
-            return number1-number2
-        },
-        12:function add (number1, number2){
-            return number1+number2
-        },
-        15:function multiply (number1, number2){
-            return number1*number2
-        },
-        13:function divide (number1, number2){
-            return number1/number2
-        },
-        14:function equality (number1, number2){
-        }
-    }
-        let selector = "number1" 
-        let number = false
+        let number = 0;
         let result 
+        let operators = {
+        10:minus    = (number1, number2) => number1 - number2,
+        12:add      = (number1, number2) => number1 + number2,
+        13:divide   = (number1, number2) => number1 / number2,
+        14:equality = (number1, number2) => number2,
+        15:multiply = (number1, number2) => number1*number2
+        }
+         
+
+
+
       $(document).ready(function(){
 
 
         for(let currentNumber = 0; currentNumber<=15; currentNumber++){
         $("#button"+currentNumber.toString()).click(function(){
-            console.log(currentNumber>=10 && number === true)
-        if(currentNumber>=10 && number === true){
-        number1 = result
-        selector = "number2"
-        }
-        number=false
-        if(currentNumber<10 && number === false){
-            if(selector==="number1"){
-        number1 = number1 + currentNumber.toString()
-        number1 = parseInt(number1)
-        $("#output").html(number1)
-         }    
-            else if(selector==="number2"){
-        number2 = number2 + currentNumber.toString()
-        number2 = parseInt(number2)
-        $("#output").html(number2)
-         }
-        }
-            if(currentNumber>=10){
-            selector = "number2"
-            number = false
-            if(currentNumber===14){
-            result = operators[storedNumber](number1,number2)
-            console.log(result)
-            $("#output").html(result)
-            selector = "number1"
-            number1 = 0;
-            number2 = 0;
-            number = true
+            if(currentNumber<10){
+        number = numberSelector(number,currentNumber)
             }
-            if(currentNumber!==14){
-            storedNumber = currentNumber
+            else if(currentNumber>=10){
+        number = calculator(number)
+            }
+
+        })            
+        function numberSelector(number,currentNumber) {
+        number += currentNumber.toString()
+        number = parseInt(number)
+        $("#output").html(number)
+        return number
+        } 
+        function calculator(number) {
+        if(storedNumber!==undefined){
+        ans = operators[storedNumber](ans, number)
+        }
+        else if(ans===0){
+        ans = number     
+        }     
+        $("#output").html(ans)
+        storedNumber = currentNumber
+        if(storedNumber!=14)
+        return 0
+        return ans
+        } 
+        function numberChecker(input) {
+            if(!savedInput){
+            let savedInput = input
+            return true     
+        } 
+            else{
+            return  savedInput === input
         }
         }
+            
+
         
         
 
          
-        })
+
         }
+
+        document.getElementById("button16").onclick = function(){
+        document.getElementById("content").style.display= "flex";
+        let closing = setInterval(none, 5000)
+        function none(){
+        document.getElementById("content").style.display= "none"; 
+    }       
+        }
+
+        
+
+
+
+
+
+
+        
+        
         
 console.log(operators[10])
 
-
+     
 
 
 
@@ -99,28 +113,36 @@ console.log(operators[10])
 <div id= "calculator">
 <div id= "screen"><p id="output"></p></div>
 <div id="buttons">
-<button id="button1" class="button"><p class="puts-number-in-center">1</p></button>
-<button id="button2" class="button"><p class="puts-number-in-center">2</p></button>
-<button id="button3" class="button"><p class="puts-number-in-center">3</p></button>
-<button id="button4" class="button"><p class="puts-number-in-center">4</p></button>
-<button id="button5" class="button"><p class="puts-number-in-center">5</p></button>
-<button id="button6" class="button"><p class="puts-number-in-center">6</p></button>
-<button id="button7" class="button"><p class="puts-number-in-center">7</p></button>
-<button id="button8" class="button"><p class="puts-number-in-center">8</p></button>
-<button id="button9" class="button"><p class="puts-number-in-center">9</p></button>
-<button id="button10" class="button"><p class="puts-number-in-center">-</p></button>
-<button id="button0" class="button"><p class="puts-number-in-center">0</p></button>
-<button id="button12" class="button"><p class="puts-number-in-center">+</p></button>
-<button id="button13" class="button"><p class="puts-number-in-center">/</p></button>
-<button id="button14" class="button"><p class="puts-number-in-center">=</p></button>
-<button id="button15" class="button"><p class="puts-number-in-center">x</p></button>
-<button id="button16" class="button"><p class="puts-number-in-center">*</p></button>
+<button id="button1" class="button"><p>1</p></button>
+<button id="button2" class="button"><p>2</p></button>
+<button id="button3" class="button"><p>3</p></button>
+<button id="button4" class="button"><p>4</p></button>
+<button id="button5" class="button"><p>5</p></button>
+<button id="button6" class="button"><p>6</p></button>
+<button id="button7" class="button"><p>7</p></button>
+<button id="button8" class="button"><p>8</p></button>
+<button id="button9" class="button"><p>9</p></button>
+<button id="button0" class="button"><p>0</p></button>
+<button id="button10" class="button"><p>-</p></button>
+<button id="button12" class="button"><p>+</p></button>
+<button id="button13" class="button"><p>/</p></button>
+<button id="button14" class="button"><p>=</p></button>
+<button id="button15" class="button"><p>x</p></button>
+<button id="button16" class="button"><p>*</p></button>
+<div class="extended">
+<div id="content">
+        <button class="special">.</button>
+        <button class="special">fast</button>
+        <button class="special">formula</button>
+        <button class="special">save</button>
+    </div>
+</div>
 </div>
 </div>
 </body>
 </html>
 <style>
-*{
+body{
     margin: 0;
     padding: 0;
 }
@@ -137,17 +159,16 @@ console.log(operators[10])
     border-style: solid;
     border-color: black;
     border-width: 1px; 
-    border-radius: 5%;
-    width: 320px;
-    box-shadow: 0px 0px 10px 5px black;
+    border-radius: 3%;
+    width: 280px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.486);
     margin: 5% 0% 0 40%;
 }
 #screen  {
     height: 75px;
-    width: 320px;
 }
 #buttons {
-    background-color: rgba(132, 0, 255, 0.356);
+    background-color: rgba(39, 10, 146, 0.973);
     width: auto;
     height: 400px;
     display: flex;
@@ -157,22 +178,34 @@ console.log(operators[10])
 }
 .button {
     background-color: rgb(246, 246, 248);
-    width: 70px;
+    width: 60px;
     height: 70px;
-    margin: 5px;
-    border-radius: 15%;
+    border-radius: 9%;
+    font-size: 30px;
 }
-#operator {
-    background-color: rgb(246, 246, 248);
-    width: 66px;
-    height: 70px;
-    margin: 5px;
-    border-radius: 15%;
+.extended {
+    position: relative;
+    display: inline-block;
+
 }
-.puts-number-in-center {
-    font-size: 50px;
-    display: block;
-    justify-content: center;
-    padding: 10%;
+#content{
+    display: none;
+    position: absolute;
+    background-color: grey;
+    z-index: 1;
+    width: 65px;
+    height: 399.8px;
+    margin: -315px 0 0 0px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    border-radius: 0 5% 5% 0;
 }
+.special{
+    width: 60px;
+    height: 70px;  
+    border-radius: 9%;
+    font-size: 30px;
+}
+
 </style>
