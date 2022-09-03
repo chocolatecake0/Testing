@@ -1,0 +1,106 @@
+html{
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e0/Clouds_over_the_Atlantic_Ocean.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar{
+    top: 0px;
+    background-color: rgb(8, 2, 27);
+    height: 8vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: fixed;
+    z-index: 1;
+}
+.space{
+    height: 350vh;
+    width: 100vw;
+    margin-top: 8vh;
+    display: flex;
+}
+.button{
+    background-color: rgb(135, 135, 236);
+    padding: 1vh;
+    border-color: rgb(127, 127, 177);
+}
+.nav-flexbox{
+    height: 8vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.placeholder{
+    width: 5vw;
+    height: auto;
+}
+.header-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 55vw;
+    height: 8vh;
+}
+.space2{
+    width: 5vw;
+}
+.content1{
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 9vh;
+}
+.space4{
+    width: 5vw;
+}
+.content2{
+    width: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.space6{
+    width: 5vw;
+}
+.content3{
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.space8{
+    width: 5vw;
+}
+.box{
+    width: 85%;
+    height: 95%;
+    background-color: azure;
+    border-radius: 1%;
+    border-style: solid;
+    border-color: rgb(8, 2, 27);    
+    border-width: 0.5vmin;
+}
+.sort{
+    padding: 4vw;
+}
+.content1 .box{
+    height: 20%;
+    position: sticky;
+}
+.first-list{
+    font-size: 20px;
+}
+.centered-minor-header{
+    text-align: center;
+    color: rgb(51, 86, 87);
+}
