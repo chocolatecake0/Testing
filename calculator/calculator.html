@@ -10,30 +10,6 @@
         let storedNumber;
         let operator = ""
         let ans = 0
-<<<<<<< HEAD
-        let number1 = 0;
-        let number2 = 0;
-        let operators = {
-        10:function minus (number1, number2){
-            return number1-number2
-        },
-        12:function add (number1, number2){
-            return number1+number2
-        },
-        15:function multiply (number1, number2){
-            return number1*number2
-        },
-        13:function divide (number1, number2){
-            return number1/number2
-        },
-        14:function divide (number1, number2){
-            return number1
-        }
-    }
-        let selector = "number1" 
-        let number = false
-        let result 
-=======
         let number = 0;
         let result 
         let operators = {
@@ -47,48 +23,11 @@
 
 
 
->>>>>>> new-test
       $(document).ready(function(){
 
 
         for(let currentNumber = 0; currentNumber<=15; currentNumber++){
         $("#button"+currentNumber.toString()).click(function(){
-<<<<<<< HEAD
-            console.log(currentNumber>=10 && number === true)
-        if(currentNumber>=10 && number === true){
-        number1 = result
-        selector = "number2"
-        }
-        number=false
-        if(currentNumber<10 && number === false){
-            if(selector==="number1"){
-        number1 = number1 + currentNumber.toString()
-        number1 = parseInt(number1)
-        $("#output").html(number1)
-         }    
-            else if(selector==="number2"){
-        number2 = number2 + currentNumber.toString()
-        number2 = parseInt(number2)
-        $("#output").html(number2)
-         }
-        }
-            if(currentNumber>=10){
-            storedNumber = currentNumber
-            number = false
-            if(selector === "number2"){
-            result = operators[storedNumber](number1,number2)
-            console.log(result)
-            $("#output").html(result)
-            selector = "number1"
-            number1 = 0;
-            number2 = 0;
-            number = true
-            }
-            else if(selector === "number1"){
-            selector = "number2"
-            }
-        }
-=======
             if(currentNumber<10){
         number = numberSelector(number,currentNumber)
             }
@@ -127,17 +66,10 @@
         }
             
 
->>>>>>> new-test
         
         
 
          
-<<<<<<< HEAD
-        })
-        }
-        
-console.log(operators[10])
-=======
 
         }
 
@@ -155,7 +87,6 @@ console.log(operators[10])
 
 
 
->>>>>>> new-test
 
         
         
@@ -182,24 +113,6 @@ console.log(operators[10])
 <div id= "calculator">
 <div id= "screen"><p id="output"></p></div>
 <div id="buttons">
-<<<<<<< HEAD
-<button id="button1" class="button"><p class="puts-number-in-center">1</p></button>
-<button id="button2" class="button"><p class="puts-number-in-center">2</p></button>
-<button id="button3" class="button"><p class="puts-number-in-center">3</p></button>
-<button id="button4" class="button"><p class="puts-number-in-center">4</p></button>
-<button id="button5" class="button"><p class="puts-number-in-center">5</p></button>
-<button id="button6" class="button"><p class="puts-number-in-center">6</p></button>
-<button id="button7" class="button"><p class="puts-number-in-center">7</p></button>
-<button id="button8" class="button"><p class="puts-number-in-center">8</p></button>
-<button id="button9" class="button"><p class="puts-number-in-center">9</p></button>
-<button id="button10" class="button"><p class="puts-number-in-center">-</p></button>
-<button id="button0" class="button"><p class="puts-number-in-center">0</p></button>
-<button id="button12" class="button"><p class="puts-number-in-center">+</p></button>
-<button id="button13" class="button"><p class="puts-number-in-center">/</p></button>
-<button id="button14" class="button"><p class="puts-number-in-center">=</p></button>
-<button id="button15" class="button"><p class="puts-number-in-center">x</p></button>
-<button id="button16" class="button"><p class="puts-number-in-center">*</p></button>
-=======
 <button id="button1" class="button"><p>1</p></button>
 <button id="button2" class="button"><p>2</p></button>
 <button id="button3" class="button"><p>3</p></button>
@@ -224,7 +137,6 @@ console.log(operators[10])
         <button class="special">save</button>
     </div>
 </div>
->>>>>>> new-test
 </div>
 </div>
 </body>
