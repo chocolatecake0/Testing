@@ -64,7 +64,7 @@ body{
     width: 5vw;
 }
 .content2{
-    width: 65vw;
+    width: 95vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@ body{
     width: 5vw;
 }
 .content3{
-    width: 20vw;
+    width: 15vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,6 @@ body{
 }
 .content1 .box{
     height: 20%;
-    position: sticky;
 }
 .first-list{
     font-size: 20px;
@@ -103,4 +102,7 @@ body{
 .centered-minor-header{
     text-align: center;
     color: rgb(51, 86, 87);
+}
+#paragraph{
+    color: aqua;
 }

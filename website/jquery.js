@@ -1,3 +1,6 @@
-$(document).ready(function(){
-    $("#paragraph").load("second-container.html")
-})
+document.addEventListener("DOMContentLoaded", yee())
+
+function yee(){
+   $("#paragraph").load("second-container.html")
+   
+}
