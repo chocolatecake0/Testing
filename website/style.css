@@ -119,12 +119,8 @@ footer{
     display: none;
 }
 #box div {
-    border: 1px solid black;
+    border: 0.5px solid black;
     border-top: 0;
-}
-.content3 .box:nth-child(odd){
-    color: red;
-    border: 1px solid black;
 }
 #box div:hover {
     background-color: aqua;

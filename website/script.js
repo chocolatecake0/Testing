@@ -65,25 +65,33 @@ let hour = () => {
 let divCreator = () => {
     let div = document.createElement("div")
     let p = document.createElement("p")
+    let a = document.createElement("a")
+    a.href = "aSite.com"
+    a.target = "_blank"
     div.style.cssText = "margin-left: 5%; width: 90%; text-align: center;"
-    div.style.borderCollapse = "collapse"
-    div.appendChild(p)   
+    div.appendChild(a)
+    a.appendChild(p)   
     return div
 }
 let positionElement = (contents) => {
     for(let i = 0; i<= contents.length-1; i++){
         let div = divCreator()
         let p = div.getElementsByTagName("p")[0]
+        let a = div.getElementsByTagName("a")[0]
+        a.style.color = "black"
+        a.style.textDecoration = "none"
         p.innerText = contents[i]
-        div.id = "div " + (i+1)        
+        div.id = "div " + (i+1)
+        if(i === 0){
+            div.style.borderTop = "1px solid black"
+        }        
         dom.block.appendChild(div)
     }    
 }
 
-//
-changeColor = () => dom.block.style.cssText = "backround-color: blue"
-//
-
+let takeFromStorage = (storage) => {
+    
+} 
 
 //events
 document.addEventListener("DOMContentLoaded", allDomLoadedFunctions)

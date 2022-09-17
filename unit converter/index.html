@@ -1,0 +1,54 @@
+<h1>Percentage Calculator</h1>
+<p>Use same units please</p>
+
+<form id="form">
+<label>Write down child element's size</label>
+<input type="text" id="child-size">
+<br>
+<br>
+<label>Write down parent element's length</label>
+<input type="text" id="parent-size">
+<br>
+<br>
+<button type="button" onclick="getAll()">Press  Here</button>
+<p id="result">Result</p>
+</form>
+
+
+
+
+<script>
+    function getAll () {
+        let child = getChild()
+        let parent = getParent()
+        let validator = check(child, parent)
+        let resultScreen = getResult()
+        let result = converter(child, parent, validator, resultScreen)
+    }
+    function getChild () {
+        let child = document.getElementById("child-size").value;
+        return child
+    }
+    function getParent () {
+        let parent = document.getElementById("parent-size").value;
+        return parent
+    }
+    function getResult () {
+        let resultScreen = document.getElementById("result")
+        return resultScreen
+    }
+    function converter (child, parent, validator, resultScreen) {
+        if(validator === true){
+        let result = child/parent*100
+        resultScreen.innerHTML = result + "%"
+        }
+        else{
+        resultScreen.innerHTML = "only type numbers please"
+    }
+    }
+    function check (child, parent) {
+        let sum = child + parent 
+        let regex = /[^0-9]/g
+        return !(regex.test(sum))
+    }
+</script> 
