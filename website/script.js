@@ -9,8 +9,9 @@ let interval = 0;
 //storage is backend data
 let storage = ["no1", "no2", "no3", "no4", "no5", "no6", "no7", "no8", "no9", "no10", "no11", "no12", "no13", "no14"]
 //consider storage array as backend data
-let contents = ["no1", "no2", "no3", "no4", "no5", "no6", "no7"]
+let contents = []
 //timer variables
+
 
 let seconds = 0;
 let minutes = 0;
@@ -20,6 +21,7 @@ let days = 0;
 //main functions
 let allDomLoadedFunctions = () => {
 domVariables()  
+contentCreator()
 hour()
 positionElement(contents, 6)
 
@@ -30,6 +32,15 @@ scrollingDown()
 }
 
 //parts of the main function
+
+let contentCreator = () => {
+    while (contents.length<7)
+    {   
+    x = Math.floor(Math.random()*14)
+    if(contents.includes(storage[x]) === false)
+    contents.push(storage[x])
+    }
+    }
 
 let domVariables = () => {
 dom.block = document.querySelector("#box");
